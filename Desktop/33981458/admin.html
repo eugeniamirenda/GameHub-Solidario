@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel Administración - GameHub Solidario</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
+<body>
+    <header class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
+        <div class="container-fluid">
+            <a class="navbar-brand d-flex align-items-center ms-3" href="#">
+                <img src="./multimedia/logo.png" alt="GameHub Solidario" class="logo-brand me-2">
+                <span>GameHub Solidario</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <nav class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <button class="btn btn-outline-light" type="button" onclick="cerrarSesion()">Cerrar sesión</button>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="py-4 bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h2 class="section-title">Panel de Administración</h2>
+                    <p id="welcomeMessage" class="lead">Cargando...</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5">
+        <div class="container">
+            <div class="row mb-4">
+                <div class="col-md-3 mb-3">
+                    <div class="stat-card bg-primary text-white">
+                        <div class="stat-icon">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3 id="totalTournaments">12</h3>
+                            <p>Torneos Activos</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <div class="stat-card bg-success text-white">
+                        <div class="stat-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3 id="totalPlayers">2,456</h3>
+                            <p>Jugadores Registrados</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <div class="stat-card bg-warning text-white">
+                        <div class="stat-icon">
+                            <i class="fas fa-dollar-sign"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3 id="totalDonations">$125,500</h3>
+                            <p>Total Donaciones</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <div class="stat-card bg-info text-white">
+                        <div class="stat-icon">
+                            <i class="fas fa-handshake"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3 id="totalSponsors">28</h3>
+                            <p>Sponsors Activos</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12">
+                    <ul class="nav nav-tabs" id="adminTabs" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link active" id="tournaments-tab" data-bs-toggle="tab" data-bs-target="#tournaments" type="button">
+                                <i class="fas fa-trophy me-2"></i>Torneos
+                            </button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="players-tab" data-bs-toggle="tab" data-bs-target="#players" type="button">
+                                <i class="fas fa-users me-2"></i>Jugadores
+                            </button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="sponsors-tab" data-bs-toggle="tab" data-bs-target="#sponsors" type="button">
+                                <i class="fas fa-handshake me-2"></i>Sponsors
+                            </button>
+                        </li>
+                    </ul>
+
+                    <div class="tab-content" id="adminTabsContent">
+                        <div class="tab-pane fade show active" id="tournaments" role="tabpanel">
+                            <div class="card mt-3">
+                                <div class="card-header d-flex justify-content-between align-items-center">
+                                    <h5 class="mb-0">Gestión de Torneos</h5>
+                                    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#tournamentModal">
+                                        <i class="fas fa-plus me-2"></i>Alta
+                                    </button>
+                                </div>
+                                <div class="card-body">
+                                    <div class="table-responsive">
+                                        <table class="table table-hover" id="tournamentsTable">
+                                            <thead>
+                                                <tr>
+                                                    <th>ID</th>
+                                                    <th>Título</th>
+                                                    <th>Juego</th>
+                                                    <th>Plataforma</th>
+                                                    <th>Fecha</th>
+                                                    <th>Cupos</th>
+                                                    <th>Estado</th>
+                                                    <th>Acciones</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr data-tournament-id="1">
+                                                    <td>#001</td>
+                                                    <td>Valorant Charity Cup</td>
+                                                    <td>Valorant</td>
+                                                    <td>PC</td>
+                                                    <td>15-20 Nov 2025</td>
+                                                    <td>64/64</td>
+                                                    <td><span class="badge bg-success">En curso</span></td>
+                                                    <td>
+                                                        <button class="btn btn-sm btn-outline-primary" onclick="editTournament(1)">
+                                                            <i class="fas fa-edit"></i> Modificación
+                                                        </button>
+                                                        <button class="btn btn-sm btn-outline-danger" onclick="deleteTournament(1)">
+                                                            <i class="fas fa-trash"></i> Baja
+                                                        </button>
+                                                    </td>
+                                                </tr>
+                                                <tr data-tournament-id="2">
+                                                    <td>#002</td>
+                                                    <td>FIFA Solidario 2025</td>
+                                                    <td>FIFA 25</td>
+                                                    <td>Multi</td>
+                                                    <td>25-30 Nov 2025</td>
+                                                    <td>85/128</td>
+                                                    <td><span class="badge bg-warning">Inscripción</span></td>
+                                                    <td>
+                                                        <button class="btn btn-sm btn-outline-primary" onclick="editTournament(2)">
+                                                            <i class="fas fa-edit"></i> Modificación
+                                                        </button>
+                                                        <button class="btn btn-sm btn-outline-danger" onclick="deleteTournament(2)">
+                                                            <i class="fas fa-trash"></i> Baja
+                                                        </button>
+                                                    </td>
+                                                </tr>
+                                                <tr data-tournament-id="3">
+                                                    <td>#003</td>
+                                                    <td>LoL Community Shield</td>
+                                                    <td>League of Legends</td>
+                                                    <td>PC</td>
+                                                    <td>1-5 Dic 2025</td>
+                                                    <td>0/32</td>
+                                                    <td><span class="badge bg-info">Próximo</span></td>
+                                                    <td>
+                                                        <button class="btn btn-sm btn-outline-primary" onclick="editTournament(3)">
+                                                            <i class="fas fa-edit"></i> Modificación
+                                                        </button>
+                                                        <button class="btn btn-sm btn-outline-danger" onclick="deleteTournament(3)">
+                                                            <i class="fas fa-trash"></i> Baja
+                                                        </button>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tab-pane fade" id="players" role="tabpanel">
+                            <div class="card mt-3">
+                                <div class="card-header">
+                                    <h5 class="mb-0">Jugadores Inscriptos</h5>
+                                </div>
+                                <div class="card-body">
+                                    <div class="table-responsive">
+                                        <table class="table table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th>ID</th>
+                                                    <th>Nombre</th>
+                                                    <th>Email</th>
+                                                    <th>Torneo</th>
+                                                    <th>Fecha Inscripción</th>
+                                                    <th>Estado</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>#P001</td>
+                                                    <td>Carlos Rodriguez</td>
+                                                    <td>carlos@email.com</td>
+                                                    <td>Valorant Charity Cup</td>
+                                                    <td>10 Nov 2025</td>
+                                                    <td><span class="badge bg-success">Confirmado</span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>#P002</td>
+                                                    <td>Ana Silva</td>
+                                                    <td>ana@email.com</td>
+                                                    <td>FIFA Solidario 2025</td>
+                                                    <td>12 Nov 2025</td>
+                                                    <td><span class="badge bg-warning">Pendiente</span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>#P003</td>
+                                                    <td>Luis Martinez</td>
+                                                    <td>luis@email.com</td>
+                                                    <td>LoL Community Shield</td>
+                                                    <td>14 Nov 2025</td>
+                                                    <td><span class="badge bg-success">Confirmado</span></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tab-pane fade" id="sponsors" role="tabpanel">
+                            <div class="card mt-3">
+                                <div class="card-header d-flex justify-content-between align-items-center">
+                                    <h5 class="mb-0">Sponsors</h5>
+                                    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#sponsorModal">
+                                        <i class="fas fa-plus me-2"></i>Alta
+                                    </button>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-6 col-lg-4 mb-3">
+                                            <div class="sponsor-card">
+                                                <div class="sponsor-logo">
+                                                    <img src="./multimedia/sponsor1.jpg" alt="Spotify" class="img-fluid">
+                                                </div>
+                                                <div class="sponsor-info">
+                                                    <h6>Spotify</h6>
+                                                    <p class="text-muted small">Patrocinador Platino</p>
+                                                    <p><strong>Aporte:</strong> $25,000</p>
+                                                    <span class="badge bg-primary">Activo</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-lg-4 mb-3">
+                                            <div class="sponsor-card">
+                                                <div class="sponsor-logo">
+                                                    <img src="./multimedia/sponsor2.jpg" alt="YouTube" class="img-fluid">
+                                                </div>
+                                                <div class="sponsor-info">
+                                                    <h6>YouTube</h6>
+                                                    <p class="text-muted small">Patrocinador Oro</p>
+                                                    <p><strong>Aporte:</strong> $15,000</p>
+                                                    <span class="badge bg-primary">Activo</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-lg-4 mb-3">
+                                            <div class="sponsor-card">
+                                                <div class="sponsor-logo">
+                                                    <img src="./multimedia/sponsor3.jpg" alt="Globant" class="img-fluid">
+                                                </div>
+                                                <div class="sponsor-info">
+                                                    <h6>Globant</h6>
+                                                    <p class="text-muted small">Patrocinador Plata</p>
+                                                    <p><strong>Aporte:</strong> $10,000</p>
+                                                    <span class="badge bg-primary">Activo</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="modal fade" id="tournamentModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="tournamentModalTitle">Nuevo Torneo</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="tournamentForm">
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="tournamentTitle" class="form-label">Título del Torneo</label>
+                                <input type="text" class="form-control" id="tournamentTitle" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="tournamentGame" class="form-label">Juego</label>
+                                <select class="form-select" id="tournamentGame" required>
+                                    <option value="">Seleccionar juego</option>
+                                    <option value="valorant">Valorant</option>
+                                    <option value="fifa">FIFA 25</option>
+                                    <option value="lol">League of Legends</option>
+                                    <option value="csgo">CS:GO 2</option>
+                                    <option value="minecraft">Minecraft</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="tournamentPlatform" class="form-label">Plataforma</label>
+                                <select class="form-select" id="tournamentPlatform" required>
+                                    <option value="">Seleccionar plataforma</option>
+                                    <option value="pc">PC</option>
+                                    <option value="ps5">PlayStation 5</option>
+                                    <option value="xbox">Xbox Series X/S</option>
+                                    <option value="nintendo">Nintendo Switch</option>
+                                    <option value="multi">Multiplataforma</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="tournamentDate" class="form-label">Fecha del Torneo</label>
+                                <input type="text" class="form-control" id="tournamentDate" placeholder="Ej: 15-20 Nov 2025" required>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="tournamentSlots" class="form-label">Cupos Disponibles</label>
+                                <input type="number" class="form-control" id="tournamentSlots" min="2" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="tournamentObjective" class="form-label">Objetivo Solidario</label>
+                                <input type="text" class="form-control" id="tournamentObjective" placeholder="Ej: Hospital de Niños" required>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="tournamentRules" class="form-label">Reglamento</label>
+                            <textarea class="form-control" id="tournamentRules" rows="3" placeholder="Descripción de las reglas del torneo"></textarea>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="tournamentPrizes" class="form-label">Premios</label>
+                                <input type="text" class="form-control" id="tournamentPrizes" placeholder="Ej: $10.000 + Gaming Gear">
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="tournamentStream" class="form-label">Link del Stream</label>
+                                <input type="url" class="form-control" id="tournamentStream" placeholder="https://twitch.tv/channel">
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="tournamentReglamento" class="form-label">PDF Reglamento</label>
+                            <input type="text" class="form-control" id="tournamentReglamento" placeholder="Ruta al archivo PDF">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-primary" onclick="saveTournament()">Guardar Torneo</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="sponsorModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Nuevo Sponsor</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="sponsorForm">
+                        <div class="mb-3">
+                            <label for="sponsorName" class="form-label">Nombre del Sponsor</label>
+                            <input type="text" class="form-control" id="sponsorName" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="sponsorType" class="form-label">Tipo de Patrocinio</label>
+                            <select class="form-select" id="sponsorType" required>
+                                <option value="">Seleccionar tipo</option>
+                                <option value="platino">Patrocinador Platino ($25,000+)</option>
+                                <option value="oro">Patrocinador Oro ($15,000+)</option>
+                                <option value="plata">Patrocinador Plata ($10,000+)</option>
+                                <option value="bronce">Patrocinador Bronce ($5,000+)</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="sponsorAmount" class="form-label">Monto del Aporte</label>
+                            <input type="number" class="form-control" id="sponsorAmount" min="0" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="sponsorContact" class="form-label">Contacto</label>
+                            <input type="email" class="form-control" id="sponsorContact" required>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-primary" onclick="saveSponsor()">Guardar Sponsor</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="py-4" style="background: var(--gradient-dark); color: var(--text-light);">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                    <h5 style="color: var(--accent-color);">GameHub Solidario</h5>
+                    <p>Gaming con impacto social real</p>
+                    <div class="social-links">
+                        <a href="#" class="text-white me-3"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-white"><i class="fab fa-twitch"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <h5>Enlaces Rápidos</h5>
+                    <ul class="list-unstyled">
+                        <li><span class="text-white">Panel de Administración</span></li>
+                        <li><span class="text-white">Sesión activa</span></li>
+                        <li><span class="text-white">Usá "Cerrar sesión" para salir</span></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <h5>Contacto</h5>
+                    <p><i class="fas fa-envelope"></i> info@gamehub-solidario.org</p>
+                    <p><i class="fas fa-phone"></i> +54 11 5555-1234</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Buenos Aires, Argentina</p>
+                </div>
+            </div>
+            <hr class="bg-white">
+            <div class="text-center">
+                <p>&copy; 2025 GameHub Solidario. Todos los derechos reservados. Mirenda, María Eugenia. 33981458</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://kit.fontawesome.com/your-kit-code.js" crossorigin="anonymous"></script>
+    <script src="./js/scripts.js"></script>
+</body>
+</html>

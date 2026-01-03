@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GameHub Solidario - Gaming con Impacto Social</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
+<body>
+    <header class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
+        <div class="container-fluid">
+            <a class="navbar-brand d-flex align-items-center ms-3" href="./index.html">
+                <img src="./multimedia/logo.png" alt="GameHub Solidario" class="logo-brand me-2">
+                <span>GameHub Solidario</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <nav class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#inicio">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#mision">Misión</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#audio">Música</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#torneos">Torneos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#ranking">Ranking</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#testimonios">Testimonios</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#login">Admin</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+   
+    <section id="inicio" class="seccion-hero">
+        <div class="contenedor-video-hero">
+            <video autoplay muted loop class="video-hero">
+                <source src="./multimedia/presentacion.mp4" type="video/mp4">
+                Tu navegador no soporta videos HTML5.
+            </video>
+            <div class="superposicion-hero"></div>
+        </div>
+        <div class="contenido-hero d-flex align-items-end justify-content-center">
+            <div class="container text-center pb-5">
+                <div class="d-flex justify-content-center gap-3">
+                    <a href="#torneos" class="btn btn-lg" style="background-color: var(--primary-color); border-color: var(--primary-color); color: white;">Ver Torneos</a>
+                    <a href="./quierocolaborar.html" class="btn btn-lg" style="border: 2px solid var(--accent-color); color: var(--accent-color);">Quiero Colaborar</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+   
+    <section id="mision" class="py-5" style="background-color: var(--light-bg); color: var(--text-light);">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 mb-4">
+                    <h2 class="titulo-seccion">Nuestra Misión</h2>
+                    <p class="lead" style="color: white;">Transformar el gaming en una fuerza positiva para la sociedad, conectando jugadores con causas solidarias a través de torneos competitivos y eventos benéficos.</p>
+                    <div class="estadisticas-mision">
+                        <div class="item-estadistica">
+                            <h3 class="text-primary">$250.000</h3>
+                            <p style="color: black;">Recaudados en 2024</p>
+                        </div>
+                        <div class="item-estadistica">
+                            <h3 class="text-primary">15+</h3>
+                            <p style="color: black;">Organizaciones beneficiadas</p>
+                        </div>
+                        <div class="item-estadistica">
+                            <h3 class="text-primary">5.000+</h3>
+                            <p style="color: black;">Jugadores solidarios</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <h3 class="subtitulo-seccion">Nuestros Objetivos</h3>
+                    <div class="lista-objetivos">
+                        <div class="item-objetivo">
+                            <i class="fas fa-heart text-danger"></i>
+                            <div>
+                                <h4>Impacto Social</h4>
+                                <p style="color: black;">Conectar la comunidad gamer con organizaciones que necesitan apoyo, generando impacto real.</p>
+                            </div>
+                        </div>
+                        <div class="item-objetivo">
+                            <i class="fas fa-users text-primary"></i>
+                            <div>
+                                <h4>Comunidad Activa</h4>
+                                <p style="color: black;">Fomentar la participación y el trabajo en equipo a través de experiencias gaming inclusivas.</p>
+                            </div>
+                        </div>
+                        <div class="item-objetivo">
+                            <i class="fas fa-trophy text-warning"></i>
+                            <div>
+                                <h4>Competiciones Éticas</h4>
+                                <p style="color: black;">Organizar torneos justos y transparentes que promuevan los valores del buen juego.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+    <section id="audio" class="py-5" style="background-color: var(--light-bg); color: var(--text-light);">
+        <div class="container">
+            <h2 class="titulo-seccion text-center mb-5">Música del Evento</h2>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="reproductor-audio-card rounded-3 shadow-lg p-4" style="background-color: var(--darker-bg); border: 1px solid rgba(255, 0, 110, 0.2); color: var(--text-light);">
+                        <div class="text-center mb-4">
+                            <h4 class="mb-3">Playlist Oficial GameHub Solidario</h4>
+                            <p style="color: white;">Disfruta de la música que acompaña nuestros torneos benéficos</p>
+                        </div>
+                        
+                        <!-- Audio Player Principal -->
+                        <div class="reproductor-audio mb-4">
+                            <div class="d-flex align-items-center mb-3">
+                                <img src="./multimedia/logo.png" alt="Album Art" class="caratula-audio me-3">
+                                <div class="flex-grow-1">
+                                    <h5 class="mb-1">Warriors League of Legends</h5>
+                                    <p>GameHub Solidario Official</p>
+                                </div>
+                            </div>
+                            
+                            <audio controls class="w-100" id="mainAudioPlayer">
+                                <source src="./multimedia/Warriors  League of Legends.mp3" type="audio/mpeg">
+                                Tu navegador no soporta el elemento de audio.
+                            </audio>
+                        </div>
+                        
+                     
+                        
+                       
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="torneos" class="py-5">
+        <div class="container">
+            <h2 class="titulo-seccion text-center mb-5">Torneos en Curso</h2>
+            <div class="row g-4" id="torneosContainer">
+                <!-- Torneo 1 -->
+                <div class="col-lg-6 col-xl-4">
+                    <div class="tarjeta-torneo">
+                        <div class="imagen-torneo">
+                            <img src="./multimedia/valorant.avif" alt="Valorant Charity Cup" class="img-fluid">
+                            <!--<div class="estado-torneo">En curso</div>-->
+                        </div>
+                        <div class="contenido-torneo">
+                            <h3>Valorant solidario</h3>
+                            <div class="info-torneo">
+                                <p><i class="fas fa-gamepad"></i> Valorant</p>
+                                <p><i class="fas fa-desktop"></i> PC</p>
+                                <p><i class="fas fa-calendar"></i> 15-20 Nov 2025</p>
+                                <p><i class="fas fa-users"></i> 32 equipos / 64 cupos</p>
+                                <p><i class="fas fa-bullseye"></i> Hospital de Niños</p>
+                            </div>
+                            <div class="progreso-torneo">
+                                <div class="progress">
+                                    <div class="progress-bar bg-success" style="width: 75%">75% recaudado</div>
+                                </div>
+                                <small>$37.500 de $50.000</small>
+                            </div>
+                            <div class="acciones-torneo">
+                                <button class="btn btn-outline-primary btn-sm" onclick="verReglamento('valorant')">Ver Reglamento</button>
+                                <a href="./quierocolaborar.html" class="btn btn-warning btn-sm">Quiero Colaborar</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Torneo 2 -->
+                <div class="col-lg-6 col-xl-4">
+                    <div class="tarjeta-torneo">
+                        <div class="imagen-torneo">
+                            <img src="./multimedia/fifa.webp" alt="FIFA Solidario" class="img-fluid">
+                            <!--<div class="estado-torneo">Inscripción abierta</div>-->
+                        </div>
+                        <div class="contenido-torneo">
+                            <h3>Fifa solidario</h3>
+                            <div class="info-torneo">
+                                <p><i class="fas fa-gamepad"></i> FIFA 25</p>
+                                <p><i class="fas fa-desktop"></i> PS5 / Xbox / PC</p>
+                                <p><i class="fas fa-calendar"></i> 25-30 Nov 2025</p>
+                                <p><i class="fas fa-users"></i> 128 jugadores</p>
+                                <p><i class="fas fa-bullseye"></i> Comedores comunitarios</p>
+                            </div>
+                            <div class="progreso-torneo">
+                                <div class="progress">
+                                    <div class="progress-bar bg-warning" style="width: 45%">45% recaudado</div>
+                                </div>
+                                <small>$22.500 de $50.000</small>
+                            </div>
+                            <div class="acciones-torneo">
+                                <button class="btn btn-outline-primary btn-sm" onclick="verReglamento('fifa')">Ver Reglamento</button>
+                                <a href="./quierocolaborar.html" class="btn btn-warning btn-sm">Quiero Colaborar</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Torneo 3 -->
+                <div class="col-lg-6 col-xl-4">
+                    <div class="tarjeta-torneo">
+                        <div class="imagen-torneo">
+                            <img src="./multimedia/lol.avif" alt="League of Legends" class="img-fluid">
+                            <!--<div class="estado-torneo">Próximamente</div>-->
+                        </div>
+                        <div class="contenido-torneo">
+                            <h3>Lol solidario</h3>
+                            <div class="info-torneo">
+                                <p><i class="fas fa-gamepad"></i> League of Legends</p>
+                                <p><i class="fas fa-desktop"></i> PC</p>
+                                <p><i class="fas fa-calendar"></i> 1-5 Dic 2025</p>
+                                <p><i class="fas fa-users"></i> 16 equipos</p>
+                                <p><i class="fas fa-bullseye"></i> Educación rural</p>
+                            </div>
+                            <div class="progreso-torneo">
+                                <div class="progress">
+                                    <div class="progress-bar bg-info" style="width: 20%">20% recaudado</div>
+                                </div>
+                                <small>$10.000 de $50.000</small>
+                            </div>
+                            <div class="acciones-torneo">
+                                <button class="btn btn-outline-primary btn-sm" onclick="verReglamento('lol')">Ver Reglamento</button>
+                                <a href="./quierocolaborar.html" class="btn btn-warning btn-sm">Quiero Colaborar</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="modal fade" id="reglamentoModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Reglamento del Torneo</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body" id="reglamentoContent">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section id="ranking" class="py-5" style="background-color: var(--light-bg); color: var(--text-light);">
+        <div class="container">
+            <h2 class="titulo-seccion text-center mb-5">Ranking de Jugadores</h2>
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="tabla-ranking">
+                        <table class="table table-hover">
+                            <thead class="table-dark">
+                                <tr>
+                                    <th>#</th>
+                                    <th>Jugador/Equipo</th>
+                                    <th>Torneos</th>
+                                    <th>Victorias</th>
+                                    <th>Puntos</th>
+                                    <th>Donaciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><span class="distincion-ranking gold">1</span></td>
+                                    <td><strong>Team Phoenix</strong></td>
+                                    <td>8</td>
+                                    <td>6</td>
+                                    <td>2,450</td>
+                                    <td>$12,500</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="distincion-ranking silver">2</span></td>
+                                    <td><strong>Carlos "Shadow" Rodríguez</strong></td>
+                                    <td>12</td>
+                                    <td>8</td>
+                                    <td>2,320</td>
+                                    <td>$8,750</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="distincion-ranking bronze">3</span></td>
+                                    <td><strong>Squad Alpha</strong></td>
+                                    <td>6</td>
+                                    <td>4</td>
+                                    <td>1,890</td>
+                                    <td>$6,200</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="distincion-ranking">4</span></td>
+                                    <td><strong>Maria "Light" González</strong></td>
+                                    <td>10</td>
+                                    <td>5</td>
+                                    <td>1,650</td>
+                                    <td>$4,500</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="distincion-ranking">5</span></td>
+                                    <td><strong>Legends Gaming</strong></td>
+                                    <td>7</td>
+                                    <td>3</td>
+                                    <td>1,420</td>
+                                    <td>$3,800</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="testimonios" class="py-5">
+        <div class="container">
+            <h2 class="titulo-seccion text-center mb-5">Testimonios y Galería</h2>
+            
+            <div class="seccion-testimonios mb-5">
+                <div class="row g-4">
+                    <div class="col-md-6 col-lg-4">
+                        <div class="tarjeta-testimonio">
+                            <div class="contenido-testimonio">
+                                <p>"GameHub Solidario me permitió combinar mi pasión por el gaming con ayudar a otros. ¡La mejor experiencia!"</p>
+                            </div>
+                            <div class="autor-testimonio">
+                                <img src="./multimedia/lucas.jpg" alt="Jugador" class="avatar">
+                                <div>
+                                    <h6>Lucas Martinez</h6>
+                                    <small>Jugador Profesional</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="tarjeta-testimonio">
+                            <div class="contenido-testimonio">
+                                <p>"Los torneos están muy bien organizados y saber que cada partida ayuda a alguien más lo hace especial."</p>
+                            </div>
+                            <div class="autor-testimonio">
+                                <img src="./multimedia/ana.jpg" alt="Jugadora" class="avatar">
+                                <div>
+                                    <h6>Ana Silva</h6>
+                                    <small>Streamer y Jugadora</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="tarjeta-testimonio">
+                            <div class="contenido-testimonio">
+                                <p>"Como organización beneficiaria, estamos increíblemente agradecidos por el apoyo de esta comunidad."</p>
+                            </div>
+                            <div class="autor-testimonio">
+                                <img src="./multimedia/dra.jpg" alt="Representante" class="avatar">
+                                <div>
+                                    <h6>Dra. Valeria Garcia</h6>
+                                    <small>Hospital de Niños</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="seccion-galeria">
+                <h3 style="color: white;" class="text-center mb-4">Galería de Eventos</h3>
+                <div class="cuadricula-galeria">
+                    <div class="item-galeria">
+                        <img src="./multimedia/ganadores.jpeg" alt="Final del torneo" class="img-fluid">
+                        <div class="superposicion-galeria">
+                            <h5>Final Valorant Cup</h5>
+                            <p>Entrega de premios y donaciones</p>
+                        </div>
+                    </div>
+                    <div class="item-galeria">
+                        <img src="./multimedia/enaccion.jpg" alt="Jugadores en acción" class="img-fluid">
+                        <div class="superposicion-galeria">
+                            <h5>Players in Action</h5>
+                            <p>Intensos momentos de competencia</p>
+                        </div>
+                    </div>
+                    <div class="item-galeria">
+                        <img src="./multimedia/final.jpeg" alt="Evento benéfico" class="img-fluid">
+                        <div class="superposicion-galeria">
+                            <h5>Evento Benéfico</h5>
+                            <p>Recaudación para comedores</p>
+                        </div>
+                    </div>
+                    <div class="item-galeria">
+                        <img src="./multimedia/voluntarios.jpg" alt="Entrega de donaciones" class="img-fluid">
+                        <div class="superposicion-galeria">
+                            <h5>Entrega de Donaciones</h5>
+                            <p>Hospital de Niños local</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="login" class="py-5 bg-dark text-white">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-6 col-lg-4">
+                    <div class="tarjeta-acceso">
+                        <h3 class="text-center mb-4">Acceso Administrador</h3>
+                        <form id="formulario-acceso">
+                            <div class="mb-3">
+                                <label for="nombre-usuario" class="form-label">Usuario</label>
+                                <input type="text" class="form-control" id="nombre-usuario" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="contraseña" class="form-label">Contraseña</label>
+                                <input type="password" class="form-control" id="contraseña" required>
+                            </div>
+                            <div class="mb-3">
+                                <div id="error-acceso" class="text-danger" style="display: none;">Usuario incorrecto</div>
+                            </div>
+                            <button type="submit" class="btn btn-primary w-100">Ingresar</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-4" style="background: var(--gradient-dark); color: var(--text-light);">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                    <h5 style="color: var(--accent-color);">GameHub Solidario</h5>
+                    <p>Gaming con impacto social real</p>
+                    <div class="enlaces-sociales">
+                        <a href="#" class="text-white me-3"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-white"><i class="fab fa-twitch"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <h5>Enlaces Rápidos</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#mision" class="text-white">Nuestra Misión</a></li>
+                        <li><a href="#torneos" class="text-white">Torneos Activos</a></li>
+                        <li><a href="./quierocolaborar.html" class="text-white">Colaborá</a></li>
+                        <li><a href="#ranking" class="text-white">Ranking</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <h5>Contacto</h5>
+                    <p><i class="fas fa-envelope"></i> info@gamehub-solidario.org</p>
+                    <p><i class="fas fa-phone"></i> +54 11 5555-1234</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Buenos Aires, Argentina</p>
+                </div>
+            </div>
+            <hr class="bg-white">
+            <div class="text-center">
+                <p>&copy; 2025 GameHub Solidario. Todos los derechos reservados. Mirenda, María Eugenia. 33981458</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://kit.fontawesome.com/your-kit-code.js" crossorigin="anonymous"></script>
+    <script src="./js/scripts.js"></script>
+</body>
+</html>

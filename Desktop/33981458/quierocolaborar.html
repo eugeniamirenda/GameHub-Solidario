@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiero Colaborar - GameHub Solidario</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
+<body>
+    <header class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
+        <div class="container-fluid">
+            <a class="navbar-brand d-flex align-items-center ms-3" href="./index.html">
+                <img src="./multimedia/logo.png" alt="GameHub Solidario" class="logo-brand me-2">
+                <span>GameHub Solidario</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <nav class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="./index.html">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#mision">Misión</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#torneos">Torneos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#ranking">Ranking</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#testimonios">Testimonios</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#login">Admin</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero-section-collaboration">
+        <div class="container">
+            <div class="row align-items-center min-vh-100">
+                <div class="col-lg-6">
+                    <h1 class="display-4 fw-bold text-white mb-4">Quiero Colaborar</h1>
+                    <p class="lead text-white mb-4">Tu apoyo hace la diferencia. Cada contribución nos ayuda a seguir creciendo y generando impacto social a través del gaming.</p>
+                    <div class="impact-stats">
+                        <div class="stat-item-small">
+                            <h4 class="text-warning">250K+</h4>
+                            <p class="text-white small">Recaudados</p>
+                        </div>
+                        <div class="stat-item-small">
+                            <h4 class="text-warning">15+</h4>
+                            <p class="text-white small">Organizaciones ayudadas</p>
+                        </div>
+                        <div class="stat-item-small">
+                            <h4 class="text-warning">5000+</h4>
+                            <p class="text-white small">Colaboradores</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="collaboration-form-card">
+                        <h3 class="text-center mb-4">Formulario de Colaboración</h3>
+                        <form id="formulario-colaboracion">
+                            <div class="section-divider">
+                                <h5>Datos Personales</h5>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="nombre" class="form-label">Nombre *</label>
+                                    <input type="text" class="form-control" id="nombre" required>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="apellido" class="form-label">Apellido *</label>
+                                    <input type="text" class="form-control" id="apellido" required>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="email" class="form-label">Email *</label>
+                                    <input type="email" class="form-control" id="email" required>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="telefono" class="form-label">Teléfono</label>
+                                    <input type="tel" class="form-control" id="telefono">
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="edad" class="form-label">Edad</label>
+                                <input type="number" class="form-control" id="edad" min="13" max="99">
+                            </div>
+
+                            <div class="section-divider">
+                                <h5>Tipo de Colaboración *</h5>
+                            </div>
+                            <div class="mb-4">
+                                <div class="form-check-group">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="tipoColaboracion" id="colaboracionDinero" value="dinero" required>
+                                        <label class="form-check-label collaboration-option" for="colaboracionDinero">
+                                            <i class="fas fa-dollar-sign"></i>
+                                            <span>Donación Dinero</span>
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="tipoColaboracion" id="colaboracionTrabajo" value="trabajo">
+                                        <label class="form-check-label collaboration-option" for="colaboracionTrabajo">
+                                            <i class="fas fa-hands-helping"></i>
+                                            <span>Colaboración con Trabajo</span>
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="tipoColaboracion" id="colaboracionDifusion" value="difusion">
+                                        <label class="form-check-label collaboration-option" for="colaboracionDifusion">
+                                            <i class="fas fa-share-alt"></i>
+                                            <span>Difusión y Redes</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div id="campos-dinero" class="dynamic-fields" style="display: none;">
+                                <div class="section-divider">
+                                    <h5>Detalles de Donación</h5>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label for="montoDonacion" class="form-label">Monto a donar *</label>
+                                        <select class="form-select" id="montoDonacion">
+                                            <option value="">Seleccionar monto</option>
+                                            <option value="500">$500</option>
+                                            <option value="1000">$1,000</option>
+                                            <option value="2500">$2,500</option>
+                                            <option value="5000">$5,000</option>
+                                            <option value="10000">$10,000</option>
+                                            <option value="otro">Otro monto</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="montoOtro" class="form-label">Monto personalizado</label>
+                                        <input type="number" class="form-control" id="montoOtro" placeholder="Ingresar monto" style="display: none;">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label for="tipoAporte" class="form-label">Tipo de aporte *</label>
+                                        <select class="form-select" id="tipoAporte">
+                                            <option value="">Seleccionar</option>
+                                            <option value="unico">Aporte único</option>
+                                            <option value="mensual">Aporte mensual</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="medioPago" class="form-label">Medio de pago preferido</label>
+                                        <select class="form-select" id="medioPago">
+                                            <option value="">Seleccionar</option>
+                                            <option value="transferencia">Transferencia bancaria</option>
+                                            <option value="mercadopago">Mercado Pago</option>
+                                            <option value="tarjeta">Tarjeta de crédito/débito</option>
+                                            <option value="paypal">PayPal</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="destinoDonacion" class="form-label">¿A qué causa querés destinar tu donación?</label>
+                                    <select class="form-select" id="destinoDonacion">
+                                        <option value="">Donación general</option>
+                                        <option value="hospital">Hospital de Niños</option>
+                                        <option value="comedores">Comedores comunitarios</option>
+                                        <option value="educacion">Educación rural</option>
+                                        <option value="ambiente">Proyectos ambientales</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div id="campos-trabajo" class="dynamic-fields" style="display: none;">
+                                <div class="section-divider">
+                                    <h5>Detalles de Colaboración</h5>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="rolColaboracion" class="form-label">Rol en el que querés colaborar</label>
+                                    <select class="form-select" id="rolColaboracion">
+                                        <option value="">Seleccionar rol</option>
+                                        <option value="streamer">Streamer / Content Creator</option>
+                                        <option value="organizador">Organizador de eventos</option>
+                                        <option value="moderador">Moderador de comunidad</option>
+                                        <option value="disenador">Diseñador gráfico</option>
+                                        <option value="desarrollador">Desarrollador web</option>
+                                        <option value="marketing">Marketing y redes sociales</option>
+                                        <option value="traductor">Traductor</option>
+                                        <option value="otro">Otro rol</option>
+                                    </select>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label for="disponibilidad" class="form-label">Disponibilidad horaria</label>
+                                        <select class="form-select" id="disponibilidad">
+                                            <option value="">Seleccionar</option>
+                                            <option value="fin-semana">Fines de semana</option>
+                                            <option value="noches">Noches (18:00 - 22:00)</option>
+                                            <option value="mañanas">Mañanas (9:00 - 13:00)</option>
+                                            <option value="completo">Tiempo completo</option>
+                                            <option value="flexible">Horario flexible</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="zona" class="form-label">Zona geográfica</label>
+                                        <select class="form-select" id="zona">
+                                            <option value="">Seleccionar</option>
+                                            <option value="caba">CABA</option>
+                                            <option value="gba">Gran Buenos Aires</option>
+                                            <option value="interior">Interior del país</option>
+                                            <option value="exterior">Exterior</option>
+                                            <option value="remoto">Trabajo remoto</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="plataformaPreferida" class="form-label">Plataforma/juego preferido</label>
+                                    <input type="text" class="form-control" id="plataformaPreferida" placeholder="Ej: Valorant, FIFA, streaming en Twitch">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="experiencia" class="form-label">Experiencia previa</label>
+                                    <textarea class="form-control" id="experiencia" rows="3" placeholder="Contanos brevemente tu experiencia..."></textarea>
+                                </div>
+                            </div>
+
+                            <div id="campos-difusion" class="dynamic-fields" style="display: none;">
+                                <div class="section-divider">
+                                    <h5>Detalles de Difusión</h5>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Redes sociales donde podés difundir</label>
+                                    <div class="social-networks-check">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="redTwitter">
+                                            <label class="form-check-label" for="redTwitter">
+                                                <i class="fab fa-twitter"></i> Twitter/X
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="redInstagram">
+                                            <label class="form-check-label" for="redInstagram">
+                                                <i class="fab fa-instagram"></i> Instagram
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="redFacebook">
+                                            <label class="form-check-label" for="redFacebook">
+                                                <i class="fab fa-facebook"></i> Facebook
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="redTwitch">
+                                            <label class="form-check-label" for="redTwitch">
+                                                <i class="fab fa-twitch"></i> Twitch
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="redYoutube">
+                                            <label class="form-check-label" for="redYoutube">
+                                                <i class="fab fa-youtube"></i> YouTube
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="redTiktok">
+                                            <label class="form-check-label" for="redTiktok">
+                                                <i class="fab fa-tiktok"></i> TikTok
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label for="frecuenciaDifusion" class="form-label">Frecuencia de difusión</label>
+                                        <select class="form-select" id="frecuenciaDifusion">
+                                            <option value="">Seleccionar</option>
+                                            <option value="diaria">Diaria</option>
+                                            <option value="semanal">Semanal</option>
+                                            <option value="quincenal">Quincenal</option>
+                                            <option value="mensual">Mensual</option>
+                                            <option value="eventos">Solo eventos importantes</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="seguidores" class="form-label">Cantidad de seguidores (aprox.)</label>
+                                        <select class="form-select" id="seguidores">
+                                            <option value="">Seleccionar</option>
+                                            <option value="menos-1k">Menos de 1,000</option>
+                                            <option value="1k-10k">1,000 - 10,000</option>
+                                            <option value="10k-50k">10,000 - 50,000</option>
+                                            <option value="50k-100k">50,000 - 100,000</option>
+                                            <option value="mas-100k">Más de 100,000</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="descargarKit">
+                                        <label class="form-check-label" for="descargarKit">
+                                            Quiero descargar el kit de prensa y materiales de difusión
+                                        </label>
+                                    </div>
+                                    <div class="kit-materials">
+                                        <p class="mb-2">Materiales disponibles para descargar:</p>
+                                        <div class="download-links">
+                                            <a href="./multimedia/logo.png" class="btn btn-outline-primary btn-sm mb-2">
+                                                <i class="fas fa-file-image"></i> Logo
+                                            </a><br>
+                                            <a href="./multimedia/kit-prensa.pdf" class="btn btn-outline-primary btn-sm mb-2">
+                                                <i class="fas fa-file-pdf"></i> Kit de Prensa
+                                            </a><br>
+                                            <a href="./multimedia/banners.zip" class="btn btn-outline-primary btn-sm mb-2">
+                                                <i class="fas fa-images"></i> Banners y Logos
+                                            </a><br>
+                                            <a href="./multimedia/videos.zip" class="btn btn-outline-primary btn-sm mb-2">
+                                                <i class="fas fa-video"></i> Videos Promocionales
+                                            </a><br>
+                                            <a href="./multimedia/audio.mp3" class="btn btn-outline-primary btn-sm mb-2">
+                                                <i class="fas fa-music"></i> Jingles y Audio
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="mb-4">
+                                <label for="mensajeAdicional" class="form-label">Mensaje adicional (opcional)</label>
+                                <textarea class="form-control" id="mensajeAdicional" rows="3" placeholder="Contanos si tenés alguna idea específica o comentario..."></textarea>
+                            </div>
+
+                            <div class="mb-4">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="terminos" required>
+                                    <label class="form-check-label" for="terminos">
+                                        Acepto los <a href="#" data-bs-toggle="modal" data-bs-target="#terminosModal">términos y condiciones</a> y la política de privacidad *
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="d-flex justify-content-between">
+                                <a href="./index.html" class="btn btn-outline-secondary">
+                                    <i class="fas fa-arrow-left me-2"></i>Volver al inicio
+                                </a>
+                                <button type="submit" class="btn btn-primary btn-lg">
+                                    <i class="fas fa-paper-plane me-2"></i>Enviar Colaboración
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="modal fade" id="exitoModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-success text-white">
+                    <h5 class="modal-title">¡Gracias por tu colaboración!</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="text-center">
+                        <i class="fas fa-check-circle text-success display-1 mb-3"></i>
+                        <h4>Tu colaboración ha sido registrada</h4>
+                        <p class="lead">Nos pondremos en contacto contigo a la brevedad para coordinar los próximos pasos.</p>
+                        <div class="mt-4">
+                            <p><strong>¿Qué sigue?</strong></p>
+                            <ul class="list-unstyled">
+                                <li><i class="fas fa-envelope text-primary"></i> Recibirás un email de confirmación</li>
+                                <li><i class="fas fa-phone text-primary"></i> Nos contactaremos en 48 horas hábiles</li>
+                                <li><i class="fas fa-users text-primary"></i> Te sumarás a nuestra comunidad de colaboradores</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    <a href="./index.html" class="btn btn-primary">Ir al inicio</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="terminosModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Términos y Condiciones</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <h6>1. Aceptación de los Términos</h6>
+                    <p>Al completar este formulario, aceptás los términos y condiciones de GameHub Solidario para la colaboración en nuestras actividades benéficas.</p>
+                    
+                    <h6>2. Uso de Información Personal</h6>
+                    <p>Tus datos personales serán utilizados exclusivamente para coordinar tu colaboración y mantenerte informado sobre nuestras actividades. No compartimos tu información con terceros sin tu consentimiento.</p>
+                    
+                    <h6>3. Compromiso de Colaboración</h6>
+                    <p>La colaboración es voluntaria y podés retirarte en cualquier momento. Las donaciones monetarias son voluntarias y no reembolsables.</p>
+                    
+                    <h6>4. Transparencia</h6>
+                    <p>GameHub Solidario se compromete a utilizar todos los fondos y recursos recibidos para los fines benéficos declarados, con total transparencia.</p>
+                    
+                    <h6>5. Derechos y Responsabilidades</h6>
+                    <p>Como colaborador, tenés derecho a recibir información sobre el impacto de tu contribución y participar de nuestras actividades. Nos comprometemos a dar crédito apropiado a nuestros colaboradores.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="py-4" style="background: var(--gradient-dark); color: var(--text-light);">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                    <h5 style="color: var(--accent-color);">GameHub Solidario</h5>
+                    <p>Gaming con impacto social real</p>
+                    <div class="social-links">
+                        <a href="#" class="text-white me-3"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-white"><i class="fab fa-twitch"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <h5>Enlaces Rápidos</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="./index.html" class="text-white">Inicio</a></li>
+                        <li><a href="#mision" class="text-white">Nuestra Misión</a></li>
+                        <li><a href="#torneos" class="text-white">Torneos Activos</a></li>
+                        <li><a href="#ranking" class="text-white">Ranking</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <h5>Contacto</h5>
+                    <p><i class="fas fa-envelope"></i> info@gamehub-solidario.org</p>
+                    <p><i class="fas fa-phone"></i> +54 11 5555-1234</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Buenos Aires, Argentina</p>
+                </div>
+            </div>
+            <hr class="bg-white">
+            <div class="text-center">
+                <p>&copy; 2025 GameHub Solidario. Todos los derechos reservados. Mirenda, María Eugenia. 33981458</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://kit.fontawesome.com/your-kit-code.js" crossorigin="anonymous"></script>
+    <script src="./js/scripts.js"></script>
+</body>
+</html>
